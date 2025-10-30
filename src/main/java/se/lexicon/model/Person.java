@@ -57,11 +57,13 @@ public class Person {
 
         }
     }
-    public void returnBook(Book book) {
-        Book[] newBorrowed= new Book[borrowed.length - 1];
-        for (int i = 0, j = 0; i < newBorrowed.length; i++) {
+    public void returnBook (Book book) {
+        Book[] newBorrowed = new Book[borrowed.length];
+        // copy all elements of borrowed except this book
+        for (int i=0, j=0; i < borrowed.length; i++) {
+            // copy all elements from borrowed, except if element.id == book.id
             if (!borrowed[i].getId().equals(book.getId())) {
-                newBorrowed[i] = borrowed[i];
+                newBorrowed[j] = borrowed[i];
                 j++;
             }
 
